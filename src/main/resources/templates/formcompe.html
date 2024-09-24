@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Competicion</title>
+    <link rel="stylesheet" href="./css/estilos.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="w-50">
+            <form th:action="@{/guardarCompeticion}" th:object="${competicion}" method="post" class="p-5 border rounded bg-light">
+                <input type="hidden" th:field="*{id}" />
+                <center><h4>Solicitud de datos:</h4></center><br>
+                <div class="mb-3 form-floating">
+                    <input type="text" class="form-control" th:field="*{nombre}"/>
+                    <label for="nombre">Nombre</label>
+                </div>
+                <div class="mb-3 form-floating">
+                    <input type="number" class="form-control" th:field="*{montoPremio}"/>
+                    <label for="montoPremio">Monto Premio</label>
+                </div>
+                <div class="mb-3 form-floating">
+                    <input type="date" class="form-control" th:field="*{fechaInicio}"/>
+                    <label for="fechaInicio">Fecha Inicio</label>
+                </div>
+				<div class="mb-3 form-floating">
+				    <input type="date" class="form-control" th:field="*{fechaFin}"/>
+				    <label for="fechaFin">Fecha Final</label>
+				</div>
+                <div class="d-grid gap-3">
+                    <button type="submit" class="btn btn-primary btn-block">Enviar</button>
+                    <button type="reset" class="btn btn-secondary btn-block">Restablecer</button>
+                </div><br>
+				<div class="d-grid gap-3">
+				    <a href="http://localhost:8025/" class="btn btn-outline-dark btn-block">Regresar</a>
+				</div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
